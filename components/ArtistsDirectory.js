@@ -1,27 +1,43 @@
-import React from 'react';
+import React, { Component } from 'react';
 import { FlatList, View, Text } from 'react-native';
 import { ListItem } from 'react-native-elements';
+import { ARTISTS } from '../shared/artists';
 
-function ArtistsDirectory(props) {
+class ArtistsDirectory extends Component {
 
-    const renderDirectoryItem = ({ item }) => {
+    constructor(props) {
+        super(props);
+        this.state = {
+            artists: ARTISTS
+        };
+    }
+
+    static navigationOptions = {
+        title: 'ArtistsDirectory'
+    }
+
+    render() {
+        const navigate = this.props.navigation.navigate;
+
+        const renderDirectoryItem = ({ item }) => {
+            return (
+                <ListItem
+                    title={item.name}
+                    subtitle={item.description}
+                    onPress={() => this.props.navigation.navigate('ArtistInfo', { artistId: item.id })}
+                    leftAvatar={{ source: require('../assets/images/artists/AdamBeyer_360x360.jpg')}}
+                />
+            );
+        };
+
         return (
-            <ListItem
-                title={item.name}
-                subtitle={item.description}
-                onPress={() => props.onPress(item.id)}
-                leftAvatar={{ source: require('../assets/images/artists/AdamBeyer_360x360.jpg')}}
+            <FlatList
+                data={this.props.artists}
+                renderItem={renderDirectoryItem}
+                keyExtractor={item => item.id.toString()}
             />
         );
-    };
-
-    return (
-        <FlatList
-            data={props.artists}
-            renderItem={renderDirectoryItem}
-            keyExtractor={item => item.id.toString()}
-        />
-    );
+    }
 }
 
 export default ArtistsDirectory;

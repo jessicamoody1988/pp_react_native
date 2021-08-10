@@ -1,39 +1,76 @@
 import React, { Component } from 'react';
-import { View } from 'react-native';
+import { Platform, StyleSheet, View } from 'react-native';
+import Constants from 'expo-constants';
+import { createDrawerNavigator } from 'react-navigation-drawer';
+import { createStackNavigator } from 'react-navigation-stack';
+import { createAppContainer } from 'react-navigation';
 
 import ArtistsDirectory from './ArtistsDirectory';
 import ArtistInfo from './ArtistInfo';
+import Home from './Home';
 
-import { ARTISTS } from '../shared/artists';
+const DirectoryNav = createStackNavigator(
+    {
+        ArtistsDirectory: { screen: ArtistsDirectory },
+        ArtistInfo: { screen: ArtistInfo }
+    },
+    {
+        initialRouteName: 'ArtistsDirectory',
+        defaultNavigationOptions: {
+            headerStyle: {
+                backgroundColor: 'purple'
+            },
+            headerTintColor: '#fff',
+            headerTitleStyle: {
+                color: '#fff'
+            }
+        }
+    }
+);
+
+const HomeNav = createStackNavigator(
+    {
+        Home: { screen: Home }
+    },
+    {
+        defaultNavigationOptions: {
+            headerStyle: {
+                backgroundColor: 'purple'
+            },
+            headerTintColor: '#fff',
+            headerTitleStyle: {
+                color: '#fff'
+            }
+        }
+    }
+);
+
+const MainNav = createDrawerNavigator(
+    {
+        Home: { screen: HomeNav },
+        ArtistsDirectory: { screen: DirectoryNav }
+    },
+    {
+        drawerBackgroundColor: 'purple'
+    }
+);
+
+const AppNav = createAppContainer(DirectoryNav);
 
 class Main extends Component {
-    constructor(props) {
-        super(props);
-        this.state = {
-            artists: ARTISTS,
-            selectedArtist: null
-        };
-    }
-
-    onArtistSelect(artistId) {
-        this.setState({ selectedArtist: artistId });
-    }
-
     render() {
         return (
-            <View style={{ flex: 1 }}>
-                <ArtistsDirectory 
-                    artists={this.state.artists}
-                    onPress={artistId => this.onArtistSelect(artistId)}
-                />
-                <ArtistInfo
-                    artist={this.state.artists.filter(
-                        artist => artist.id === this.state.selectedArtist)[0]
-                    }
-                />
+            <View style={styles.container}>
+                <ArtistsDirectory />
             </View>
         );
     }
 }
+const styles = StyleSheet.create({
+    container: {
+        flex: 1,
+        paddingTop: Platform.OS === 'ios' ? 0 : Constants.statusBarHeight
+    }
+});
 
 export default Main;

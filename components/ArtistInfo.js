@@ -1,6 +1,8 @@
-import React from 'react';
+import React, { Component } from 'react';
 import { Text, View } from 'react-native';
 import { Card } from 'react-native-elements';
+
+import { ARTISTS } from '../shared/artists';
 
 function RenderArtist({ artist }) {
     if (artist) {
@@ -18,8 +20,23 @@ function RenderArtist({ artist }) {
     return <View />
 }
 
-function ArtistInfo(props) {
-    return <RenderArtist artist={props.artist} />;
+class ArtistInfo extends Component {
+    constructor(props) {
+        super(props);
+        this.state = { 
+            artists: ARTISTS
+        };
+    }
+
+    static navigationOptions = {
+        title: 'ArtistInfo'
+    }
+
+    render() {
+        const artistId = this.props.navigation.getParam('artistId');
+        const artist = this.state.artists.filter(artist => artist.id === artistId)[0];
+        return <RenderCampsite artist={artist} />
+    }
 }
 
 export default ArtistInfo;
