@@ -1,30 +1,30 @@
 import React, { Component } from 'react';
 import { FlatList } from 'react-native';
 import { ListItem } from 'react-native-elements';
-import { ARTISTS } from '../shared/artists';
+import { EVENTS } from '../shared/events';
 
-class ArtistsDirectory extends Component {
+class Calendar extends Component {
 
     constructor(props) {
         super(props);
         this.state = {
-            artists: ARTISTS
+            events: EVENTS
         };
     }
 
     static navigationOptions = {
-        title: 'ArtistsDirectory'
+        title: 'Calendar'
     }
 
     render() {
         const { navigate } = this.props.navigation;
 
-        const renderDirectoryItem = ({ item }) => {
+        const renderCalendarItem = ({ item }) => {
             return (
                 <ListItem
                     title={item.name}
                     subtitle={item.description}
-                    onPress={() => navigate('ArtistInfo', { artistId: item.id })}
+                    onPress={() => navigate('CalendarInfo', { eventId: item.id })}
                     leftAvatar={{ source: require('../assets/images/artists/AdamBeyer_360x360.jpg')}}
                 />
             );
@@ -32,12 +32,12 @@ class ArtistsDirectory extends Component {
 
         return (
             <FlatList
-                data={this.state.artists}
-                renderItem={renderDirectoryItem}
+                data={this.state.events}
+                renderItem={renderCalendarItem}
                 keyExtractor={item => item.id.toString()}
             />
         );
     }
 }
 
-export default ArtistsDirectory;
+export default Calendar;

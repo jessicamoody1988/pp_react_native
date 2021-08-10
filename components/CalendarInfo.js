@@ -2,17 +2,17 @@ import React, { Component } from 'react';
 import { Text, View } from 'react-native';
 import { Card } from 'react-native-elements';
 
-import { ARTISTS } from '../shared/artists';
+import { EVENTS } from '../shared/events';
 
-function RenderArtist({ artist }) {
-    if (artist) {
+function RenderEvent({ event }) {
+    if (event) {
         return (
             <Card
-                featuredTitle={artist.name}
+                featuredTitle={event.name}
                 image={require('../assets/images/artists/AdamBeyer_360x360.jpg')}
             >
                 <Text style={{ margin: 10 }}>
-                    {artist.description}
+                    {event.description}
                 </Text>
             </Card>
         );
@@ -20,23 +20,23 @@ function RenderArtist({ artist }) {
     return <View />
 }
 
-class ArtistInfo extends Component {
+class CalendarInfo extends Component {
     constructor(props) {
         super(props);
         this.state = { 
-            artists: ARTISTS
+            events: EVENTS
         };
     }
 
     static navigationOptions = {
-        title: 'ArtistInfo'
+        title: 'CalendarInfo'
     }
 
     render() {
-        const artistId = this.props.navigation.getParam('artistId');
-        const artist = this.state.artists.filter(artist => artist.id === artistId)[0];
-        return <RenderArtist artist={artist} />
+        const eventId = this.props.navigation.getParam('eventId');
+        const event = this.state.events.filter(event => event.id === eventId)[0];
+        return <RenderEvent event={event} />
     }
 }
 
-export default ArtistInfo;
+export default CalendarInfo;
