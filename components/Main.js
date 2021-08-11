@@ -192,13 +192,20 @@ const MainNav = createDrawerNavigator(
                         size={24}
                         color={tintColor}
                     />
-                )
-            } 
+                ),
+                
+            },
         }
     },
     {
-        drawerBackgroundColor: COLORS.navColor,
-        contentComponent: NavDrawerContent
+        drawerBackgroundColor: COLORS.navBackground,
+        drawerType: 'slide',
+        contentComponent: NavDrawerContent,
+        inactiveTintColor: COLORS.navColorInactive,
+        contentOptions: {
+            activeTintColor: COLORS.navColorActive,
+            inactiveTintColor: COLORS.navColorInactive
+        }
     }
 );
 

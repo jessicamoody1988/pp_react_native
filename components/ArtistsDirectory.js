@@ -23,7 +23,6 @@ class ArtistsDirectory extends Component {
             return (
                 <ListItem
                     title={item.name}
-                    subtitle={item.description}
                     onPress={() => navigate('ArtistInfo', { artistId: item.id })}
                     leftAvatar={{ source: require('../assets/images/artists/AdamBeyer_360x360.jpg')}}
                 />
