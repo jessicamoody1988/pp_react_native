@@ -37,9 +37,9 @@ const DirectoryNav = createStackNavigator(
             headerStyle: {
                 backgroundColor: COLORS.navBackground
             },
-            headerTintColor: '#fff',
+            headerTintColor: COLORS.navColorInactive,
             headerTitleStyle: {
-                color: '#fff'
+                color: COLORS.navColorInactive
             }
         }
     }
@@ -66,9 +66,9 @@ const CalendarNav = createStackNavigator(
             headerStyle: {
                 backgroundColor: COLORS.navBackground
             },
-            headerTintColor: '#fff',
+            headerTintColor: COLORS.navColorInactive,
             headerTitleStyle: {
-                color: '#fff'
+                color: COLORS.navColorInactive
             }
         }
     }
@@ -83,9 +83,9 @@ const HomeNav = createStackNavigator(
             headerStyle: {
                 backgroundColor: COLORS.navBackground
             },
-            headerTintColor: '#fff',
+            headerTintColor: COLORS.navColorInactive,
             headerTitleStyle: {
-                color: '#fff'
+                color: COLORS.navColorInactive
             },
             headerLeft: <Icon
                 name='home'
@@ -104,11 +104,11 @@ const AboutNav = createStackNavigator(
     {
         defaultNavigationOptions: ({ navigation }) => ({
             headerStyle: {
-                backgroundColor: 'purple'
+                backgroundColor: COLORS.navBackground
             },
-            headerTintColor: '#fff',
+            headerTintColor: COLORS.navColorInactive,
             headerTitleStyle: {
-                color: '#fff'
+                color: COLORS.navColorInactive
             },
             headerLeft: <Icon
                 name='book-music'
@@ -203,6 +203,9 @@ const MainNav = createDrawerNavigator(
         contentComponent: NavDrawerContent,
         inactiveTintColor: COLORS.navColorInactive,
         contentOptions: {
+            labelStyle: {
+                color: COLORS.navColorInactive
+            },
             activeTintColor: COLORS.navColorActive,
             inactiveTintColor: COLORS.navColorInactive
         }
@@ -234,12 +237,12 @@ const styles = StyleSheet.create({
         flexDirection: 'row'
     },
     drawerHeaderText: {
-        color: '#fff',
+        color: COLORS.navColorInactive,
         fontSize: 24,
         fontWeight: 'bold'
     },
     drawerImage: {
-        margin: 10,
+        margin: 2,
         height: 60,
         width: 60
     },
