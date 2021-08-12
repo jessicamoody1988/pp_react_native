@@ -1,7 +1,38 @@
 import React, { Component } from 'react';
-import { Text, View } from 'react-native';
+import { Image, ScrollView, StyleSheet, Text, View } from 'react-native';
+
+import { ARTISTS } from '../shared/artists';
+
+const ArtistSpotlight = props => {
+    return (
+        <ScrollView>
+            <View style={styles.artistSpotlightContainer}>
+                <Text style={styles.artistSpotlightHeader}>Artist Spotlight</Text>
+                <Image
+                    resizeMethod='scale'
+                    resizeMode='contain'
+                    source={require('../assets/images/us-placeholder-square.jpg')}
+                    style={styles.artistSpotlightImage}
+                />
+                <Text style={styles.artistSpotlightName}>Artist Name</Text>
+            </View>
+            <View style={styles.artistSpotlightTextContainer}>
+                <Text>
+                    Why was this artist chosen this month? Well right now thats unclear. I just need some filler text to put here for the time being.
+                </Text>
+            </View>
+        </ScrollView>
+    );
+}
 
 class Home extends Component {
+
+    constructor(props) {
+        super(props);
+        this.state = {
+            featuredArtist: ARTISTS.filter(artist => artist.spotlight)[0]
+        }
+    }
 
     static navigationOptions = {
         title: 'Home'
@@ -9,11 +40,46 @@ class Home extends Component {
 
     render() {
         return (
-            <View>
-                <Text>Home Component</Text>
+            <View style={styles.container}>
+                <ArtistSpotlight />
             </View> 
         );
     }
 }
+
+const styles = StyleSheet.create({
+    container: {
+        flex: 1,
+    },
+    artistSpotlightContainer: {
+        alignItems: 'center'
+    },
+    artistSpotlightHeader: {
+        fontSize: 24,
+        fontWeight: 'bold',
+        alignItems: 'center',
+        paddingTop: 2
+    },
+    artistSpotlightImage: {
+        width: 300,
+        height: 300,
+        borderRadius: 45,
+        margin: 10
+    },
+    artistSpotlightName: {
+        fontSize: 20,
+        fontWeight: 'bold'
+    },
+    artistSpotlightTextContainer: {
+        padding: 10,
+        paddingTop: 5
+    },
+    mediaSpotlightContainer: {
+
+    },
+    mediaSpotlightHeader: {
+
+    }
+})
 
 export default Home;
