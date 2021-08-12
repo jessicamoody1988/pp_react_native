@@ -1,11 +1,13 @@
 import React, { Component } from 'react';
 import { Image, ScrollView, StyleSheet, Text, View } from 'react-native';
 
+import MediaPlayer from './MediaPlayer';
+
 import { ARTISTS } from '../shared/artists';
 
 const ArtistSpotlight = props => {
     return (
-        <ScrollView>
+        <View>
             <View style={styles.artistSpotlightContainer}>
                 <Text style={styles.artistSpotlightHeader}>Artist Spotlight</Text>
                 <Image
@@ -21,7 +23,7 @@ const ArtistSpotlight = props => {
                     Why was this artist chosen this month? Well right now thats unclear. I just need some filler text to put here for the time being.
                 </Text>
             </View>
-        </ScrollView>
+        </View>
     );
 }
 
@@ -40,9 +42,10 @@ class Home extends Component {
 
     render() {
         return (
-            <View style={styles.container}>
+            <ScrollView style={styles.container}>
                 <ArtistSpotlight />
-            </View> 
+                <MediaPlayer />
+            </ScrollView> 
         );
     }
 }
