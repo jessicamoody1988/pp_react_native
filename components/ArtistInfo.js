@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { Text, View } from 'react-native';
+import { StyleSheet, Text, View } from 'react-native';
 import { Card } from 'react-native-elements';
 
 import { ARTISTS } from '../shared/artists';
@@ -9,7 +9,8 @@ function RenderArtist({ artist }) {
         return (
             <Card
                 featuredTitle={artist.name}
-                image={require('../assets/images/artists/AdamBeyer_360x360.jpg')}
+                image={artist.image}
+                imageStyle={styles.RenderArtistCardImage}
             >
                 <Text style={{ margin: 10 }}>
                     {artist.description}
@@ -38,5 +39,12 @@ class ArtistInfo extends Component {
         return <RenderArtist artist={artist} />
     }
 }
+
+const styles = StyleSheet.create({
+    RenderArtistCardImage: {
+        width: 360,
+        height: 360
+    }
+})
 
 export default ArtistInfo;

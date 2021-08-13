@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
-import { FlatList } from 'react-native';
-import { ListItem } from 'react-native-elements';
+import { FlatList, StyleSheet, View } from 'react-native';
+import { Avatar, ListItem } from 'react-native-elements';
 import { ARTISTS } from '../shared/artists';
 
 class ArtistsDirectory extends Component {
@@ -8,7 +8,7 @@ class ArtistsDirectory extends Component {
     constructor(props) {
         super(props);
         this.state = {
-            artists: ARTISTS
+            artists: ARTISTS.sort((a, b) => (a.name > b.name ? 1 : -1))
         };
     }
 
@@ -24,7 +24,7 @@ class ArtistsDirectory extends Component {
                 <ListItem
                     title={item.name}
                     onPress={() => navigate('ArtistInfo', { artistId: item.id })}
-                    leftAvatar={{ source: require('../assets/images/artists/AdamBeyer_360x360.jpg')}}
+                    leftAvatar={{ source: item.image }}
                 />
             );
         };
@@ -38,5 +38,11 @@ class ArtistsDirectory extends Component {
         );
     }
 }
+
+const styles = StyleSheet.create({
+    renderDirectoryItemRow: {
+        flexDirection: 'row'
+    }
+})
 
 export default ArtistsDirectory;
