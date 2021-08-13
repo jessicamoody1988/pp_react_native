@@ -7,15 +7,21 @@ import { ARTISTS } from '../shared/artists';
 function RenderArtist({ artist }) {
     if (artist) {
         return (
-            <Card
-                featuredTitle={artist.name}
-                image={artist.image}
-                imageStyle={styles.RenderArtistCardImage}
-            >
-                <Text style={{ margin: 10 }}>
-                    {artist.description}
-                </Text>
-            </Card>
+            <View>
+                <View style={styles.RenderArtistCardArtistNameContainer}>
+                    <Text style={styles.RenderArtistCardArtistName}>
+                        {artist.name}
+                    </Text>
+                </View>
+                <Card
+                    image={artist.image}
+                    imageStyle={styles.RenderArtistCardImage}
+                >
+                    <Text style={{ margin: 10 }}>
+                        {artist.description}
+                    </Text>
+                </Card>
+            </View>
         );
     }
     return <View />
@@ -41,6 +47,14 @@ class ArtistInfo extends Component {
 }
 
 const styles = StyleSheet.create({
+    RenderArtistCardArtistName: {
+        fontSize: 24
+    },
+    RenderArtistCardArtistNameContainer: {
+        justifyContent: 'center',
+        alignItems: 'center',
+        paddingTop: 10
+    },
     RenderArtistCardImage: {
         width: 360,
         height: 360
