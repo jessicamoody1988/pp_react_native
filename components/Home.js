@@ -13,7 +13,8 @@ const ArtistSpotlight = props => {
                 <Image
                     resizeMethod='scale'
                     resizeMode='contain'
-                    source={require('../assets/images/us-placeholder-square.jpg')}
+                    // source={require('../assets/images/us-placeholder-square.jpg')}
+                    source={props.artist.image}
                     style={styles.artistSpotlightImage}
                 />
                 <Text style={styles.artistSpotlightName}>Artist Name</Text>
@@ -43,7 +44,7 @@ class Home extends Component {
     render() {
         return (
             <ScrollView style={styles.container}>
-                <ArtistSpotlight />
+                <ArtistSpotlight artist={this.state.featuredArtist} />
                 <MediaPlayer />
             </ScrollView> 
         );
