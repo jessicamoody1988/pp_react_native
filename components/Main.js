@@ -20,7 +20,7 @@ const DirectoryNav = createStackNavigator(
         ArtistsDirectory: { 
             screen: ArtistsDirectory,
             navigationOptions: ({ navigation }) => ({
-                drawerLabel: 'Artists',
+                headerTitle: 'Artists',
                 headerLeft: <Icon
                     name='account-music'
                     type='material-community'
@@ -29,7 +29,12 @@ const DirectoryNav = createStackNavigator(
                 />
             }),
         },
-        ArtistInfo: { screen: ArtistInfo }
+        ArtistInfo: { 
+            screen: ArtistInfo,
+            navigationOptions: () => ({
+                headerTitle: 'Artist Details'
+            })
+        }
     },
     {
         initialRouteName: 'ArtistsDirectory',
@@ -159,6 +164,7 @@ const MainNav = createDrawerNavigator(
         ArtistsDirectory: { 
             screen: DirectoryNav,
             navigationOptions: {
+                drawerLabel: 'Artists',
                 drawerIcon: ({ tintColor }) => (
                     <Icon
                         name='account-music'
