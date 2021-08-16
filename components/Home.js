@@ -13,11 +13,10 @@ const ArtistSpotlight = props => {
                 <Image
                     resizeMethod='scale'
                     resizeMode='contain'
-                    // source={require('../assets/images/us-placeholder-square.jpg')}
                     source={props.artist.image}
                     style={styles.artistSpotlightImage}
                 />
-                <Text style={styles.artistSpotlightName}>Artist Name</Text>
+                <Text style={styles.artistSpotlightName}>{props.artist.name}</Text>
             </View>
             <View style={styles.artistSpotlightTextContainer}>
                 <Text>
