@@ -1,19 +1,15 @@
 import React, { Component } from 'react';
-import AppLoading from 'expo-app-loading';
-import * as Font from 'expo-font';
 import { FlatList, StyleSheet, View } from 'react-native';
-import { Avatar, ListItem } from 'react-native-elements';
+import { ListItem } from 'react-native-elements';
 
 import { ARTISTS } from '../shared/artists';
-import { FONTS } from '../shared/fonts';
 
 class ArtistsDirectory extends Component {
 
     constructor(props) {
         super(props);
         this.state = {
-            artists: ARTISTS.sort((a, b) => (a.name > b.name ? 1 : -1)),
-            fontsLoaded: false
+            artists: ARTISTS.sort((a, b) => (a.name > b.name ? 1 : -1))
         };
     }
 
@@ -21,45 +17,32 @@ class ArtistsDirectory extends Component {
         title: 'ArtistsDirectory'
     }
 
-    async _loadFontsAsync() {
-        await Font.loadAsync(FONTS);
-        this.setState({ fontsLoaded: true });
-    }
-
-    componentDidMount() {
-        this._loadFontsAsync();
-    }
-
     render() {
-        if (this.state.fontsLoaded) {
-            const { navigate } = this.props.navigation;
+        const { navigate } = this.props.navigation;
 
-            const renderDirectoryItem = ({ item }) => {
-
-                return (
-                    <ListItem
-                        title={item.name}
-                        titleStyle={styles.renderDirectItemTitleStyle}
-                        onPress={() => navigate('ArtistInfo', { artistId: item.id })}
-                        leftAvatar={{
-                            source: item.image,
-                            size: 'large',
-                            
-                        }}
-                    />
-                );
-            };
+        const renderDirectoryItem = ({ item }) => {
 
             return (
-                <FlatList
-                    data={this.state.artists}
-                    renderItem={renderDirectoryItem}
-                    keyExtractor={item => item.id.toString()}
+                <ListItem
+                    title={item.name}
+                    titleStyle={styles.renderDirectItemTitleStyle}
+                    onPress={() => navigate('ArtistInfo', { artistId: item.id })}
+                    leftAvatar={{
+                        source: item.image,
+                        size: 'large',
+                        
+                    }}
                 />
             );
-        } else {
-            return <AppLoading />;
-        }
+        };
+
+        return (
+            <FlatList
+                data={this.state.artists}
+                renderItem={renderDirectoryItem}
+                keyExtractor={item => item.id.toString()}
+            />
+        );
     }
 }
 
@@ -68,7 +51,7 @@ const styles = StyleSheet.create({
         flexDirection: 'row'
     },
     renderDirectItemTitleStyle: {
-        fontFamily: 'RighteousReg',
+        fontFamily: 'SpecialEliteReg',
         fontSize: 20
     }
 })

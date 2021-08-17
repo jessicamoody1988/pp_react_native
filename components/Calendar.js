@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
-import { FlatList } from 'react-native';
-import { ListItem } from 'react-native-elements';
+import { FlatList, Image, StyleSheet, TouchableOpacity, View } from 'react-native';
+
 import { EVENTS } from '../shared/events';
 
 class Calendar extends Component {
@@ -21,12 +21,14 @@ class Calendar extends Component {
 
         const renderCalendarItem = ({ item }) => {
             return (
-                <ListItem
-                    title={item.name}
-                    subtitle={item.description}
-                    onPress={() => navigate('CalendarInfo', { eventId: item.id })}
-                    leftAvatar={{ source: require('../assets/images/artists/AdamBeyer_360x360.jpg')}}
-                />
+                <View style={styles.container}>
+                    <TouchableOpacity onPress={() => navigate('CalendarInfo', { eventId: item.id })}>
+                        <Image 
+                            source={ item.image } 
+                            style={styles.flyer}
+                        />
+                    </TouchableOpacity>
+                </View>
             );
         };
 
@@ -39,5 +41,18 @@ class Calendar extends Component {
         );
     }
 }
+
+const styles = StyleSheet.create({
+    container: {
+        flex: 1,
+        justifyContent: 'center',
+        alignItems: 'center'
+    },
+    flyer: {
+        width: 360,
+        height: 225,
+        resizeMode: 'contain'
+    }
+})
 
 export default Calendar;

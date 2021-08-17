@@ -1,8 +1,7 @@
+import AppLoading from 'expo-app-loading';
 import React, { Component } from 'react';
 import { Image, StyleSheet, Text, TouchableOpacity, View } from 'react-native';
 import { Icon } from 'react-native-elements';
-import { Ionicons } from '@expo/vector-icons'
-// import { Audio } from 'expo-av'
 import SoundPlayer from 'react-native-sound-player';
 
 const audioFiles = [
@@ -21,18 +20,18 @@ const audioFiles = [
 ]
 
 function MediaPlayerControls (props) {
-    if (props.isPlaying === 'true') {
+    if (props.isPlaying === true) {
         return (
             <View style={styles.mediaPlayerControlsContainer}>
                 <Icon 
                     name='pause-circle'
                     type='font-awesome'
-                    onPress={() => pressPause()}
+                    onPress={props.pressPause}
                 />
                 <Icon
                     name='stop-circle'
                     type='font-awesome'
-                    onPress={() => pressPlay()}
+                    onPress={props.pressStop}
                 />
             </View>
         );
@@ -42,16 +41,15 @@ function MediaPlayerControls (props) {
                 <Icon
                     name='play-circle'
                     type='font-awesome'
-                    onPress={() => pressPlay()}
+                    onPress={props.pressPlay}
                 />
                 <Icon
                     name='stop-circle'
                     type='font-awesome'
-                    onPress={() => pressPlay()}
+                    onPress={props.pressStop}
                 />
             </View>
         );
-
     }
 }
 
@@ -65,7 +63,7 @@ export default class MediaPlayer extends Component {
     }
 
     pressPlay() {
-
+        
     }
 
     pressPause() {
@@ -76,16 +74,19 @@ export default class MediaPlayer extends Component {
     render () {
         return (
             <View style={styles.container}>
-                <Text 
-                    style={styles.mediaPlayerTitle}
-                >
+                <Text style={styles.mediaPlayerTitle}>
                     Top 5 Tracks
                 </Text>
                 <Image 
                     style={styles.mediaPlayerImage} 
                     source={require('../assets/images/us-placeholder-square.jpg')} 
                 />
-                <MediaPlayerControls isPlaying={this.state.isPlaying} />
+                <MediaPlayerControls 
+                    isPlaying={this.state.isPlaying}
+                    pressPause={this.pressPause}
+                    pressPlay={this.pressPlay}
+                    pressStop={this.pressStop}
+                />
             </View>
         );
     }

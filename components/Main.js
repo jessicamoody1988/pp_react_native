@@ -1,4 +1,6 @@
+import AppLoading from 'expo-app-loading';
 import Constants from 'expo-constants';
+import * as Font from 'expo-font';
 import React, { Component } from 'react';
 import { createAppContainer } from 'react-navigation';
 import { createDrawerNavigator, DrawerItems } from 'react-navigation-drawer';
@@ -13,6 +15,7 @@ import About from './About';
 import Calendar from './Calendar';
 import CalendarInfo from './CalendarInfo';
 import { COLORS } from '../shared/colors';
+import { FONTS } from '../shared/fonts';
 import Home from './Home';
 
 const DirectoryNav = createStackNavigator(
@@ -221,12 +224,34 @@ const MainNav = createDrawerNavigator(
 const AppNav = createAppContainer(MainNav);
 
 class Main extends Component {
+
+    constructor(props) {
+        super(props);
+        this.state = {
+            fontsLoaded: false
+        }
+    }
+
+    async _loadFontsAsync() {
+        await Font.loadAsync(FONTS);
+        this.setState({ fontsLoaded: true });
+    }
+
+    componentDidMount() {
+        this._loadFontsAsync();
+    }
+
     render() {
-        return (
-            <View style={styles.container}>
-                <AppNav />
-            </View>
-        );
+        if (this.state.fontsLoaded) {
+            return (
+                <View style={styles.container}>
+                    <AppNav />
+                </View>
+            );
+        } else {
+            return <AppLoading />
+        }
+        
     }
 }
 const styles = StyleSheet.create({
