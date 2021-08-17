@@ -17,7 +17,7 @@ function RenderArtist({ artist }) {
                     image={artist.image}
                     imageStyle={styles.RenderArtistCardImage}
                 >
-                    <Text style={{ margin: 10 }}>
+                    <Text style={styles.RenderArtistCardArtistDescription}>
                         {artist.description}
                     </Text>
                 </Card>
@@ -48,12 +48,17 @@ class ArtistInfo extends Component {
 
 const styles = StyleSheet.create({
     RenderArtistCardArtistName: {
-        fontSize: 24
+        fontSize: 24,
+        fontFamily: 'SpecialEliteReg'
     },
     RenderArtistCardArtistNameContainer: {
         justifyContent: 'center',
         alignItems: 'center',
         paddingTop: 10
+    },
+    RenderArtistCardArtistDescription: {
+        margin: 10,
+        fontSize: 16
     },
     RenderArtistCardImage: {
         width: 360,
