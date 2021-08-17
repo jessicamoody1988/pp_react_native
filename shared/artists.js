@@ -31,7 +31,7 @@ export const ARTISTS = [
         name: 'CamelPhat',
         spotlight: false,
         image: require('../assets/images/artists/CamelPhat_360x360.jpg'),
-        genres: ['tech house', 'dance', 'house'],
+        genres: ['tech house', 'house'],
         home: 'United Kingdom',
         description: 'CamelPhat is a British DJ and production duo, consisting of Dave Whelan and Mike Di Scala, formed in Liverpool in 2004. They are best known for the 2017 single "Cola", which peaked at number 3 in the UK Dance Chart, and at number 18 in the UK Singles Chart.'
     },
@@ -58,7 +58,7 @@ export const ARTISTS = [
         name: 'Green Velvet',
         spotlight: false,
         image: require('../assets/images/artists/GreenVelvet_360x360.jpg'),
-        genres: ['techno', 'house', 'tech house', 'dance'],
+        genres: ['techno', 'house', 'tech house'],
         home: 'Chicago',
         description: 'Curtis Alan Jones, better known by his stage name Green Velvet, is an American singer, record producer. He is also known as Cajmere, Geo Vogt, Half Pint, Curan Stone, and Gino Vittori. '
     },
@@ -67,7 +67,7 @@ export const ARTISTS = [
         name: 'Massive Attack',
         spotlight: false,
         image: require('../assets/images/artists/MassiveAttack_360x360.jpg'),
-        genres: ['electronica', 'trip hop'],
+        genres: ['trip hop'],
         home: 'England',
         description: 'Massive Attack are an English electronic band formed in 1988 in Bristol by Robert "3D" Del Naja, Adrian "Tricky" Thaws, Andrew "Mushroom" Vowles and Grant "Daddy G" Marshall. The band currently consists of Del Naja, Thaws and Marshall, with Shara Nelson and Horace Andy as guest vocalists.'
     },
@@ -76,7 +76,7 @@ export const ARTISTS = [
         name: 'Hot Since 82',
         spotlight: false,
         image: require('../assets/images/artists/HotSince82_360x360.jpg'),
-        genres: ['house', 'dance'],
+        genres: ['house'],
         home: 'United Kingdom',
         description: 'Daley Padley, also known as Hot Since 82, is a British DJ, house music producer and DJ Awards winner currently based in Leeds, UK. He has been releasing music under the Hot Since 82 moniker since 2012.'
     },
@@ -85,7 +85,7 @@ export const ARTISTS = [
         name: 'Nora En Pure',
         spotlight: false,
         image: require('../assets/images/artists/NoraEnPure_360x360.jpg'),
-        genres: ['deep house'],
+        genres: ['house'],
         home: 'South Africa',
         description: 'Daniela Di Lillo, better known by her stage name Nora En Pure, is a South African-Swiss DJ and deep house producer. She first received recognition for her 2013 single "Come With Me". Further popular releases are "Morning Dew", "Lake Arrowhead", and "Tears In Your Eyes." '
     },
@@ -103,7 +103,7 @@ export const ARTISTS = [
         name: 'OFFAIAH',
         spotlight: false,
         image: require('../assets/images/artists/OFFAIAH.jpg'),
-        genres: ['house', 'dance'],
+        genres: ['house'],
         home: 'Las Vegas',
         description: 'Michael Anthony Woods is an English producer, DJ and remixer of various EDM genres, mainly progressive house, electro house and trance. He is the founder of the imprint label Diffused Music, which was established in 2010 and focuses primarily on progressive house and tech house. He has worked under the stage names of Out of Office, Warrior, Accadia, M1 and M3.'
     },
@@ -157,7 +157,7 @@ export const ARTISTS = [
         name: 'Eric Prydz',
         spotlight: false,
         image: require('../assets/images/artists/EricPrydz_360x360.jpg'),
-        genres: ['techno', 'house', 'progressive house', 'tech house'],
+        genres: ['techno', 'house', 'tech house'],
         home: 'Sweden',
         description: 'Eric Sheridan Prydz, also known by his aliases Pryda and Cirez D among a number of others, is a Swedish DJ, record producer, and musician. He rose to fame with his 2004 hit single "Call on Me", and saw continued chart success with "Proper Education" in 2007, and "Pjanoo" in 2008.'
     },
@@ -166,7 +166,7 @@ export const ARTISTS = [
         name: 'Nic Fanciulli',
         spotlight: false,
         image: require('../assets/images/artists/NicFanciulli_360x360.jpg'),
-        genres: ['house', 'deep house'],
+        genres: ['house'],
         home: 'United Kingdom',
         description: 'Nic Fanciulli has become one of the most influential artists to come out of the international dance scene in several years. With so many projects constantly in the works, Fanciulli stands out as a truly multitalented worldwide artist, with this perhaps being the key to his longevity in an increasingly fast-paced industry.'
     },
@@ -184,7 +184,7 @@ export const ARTISTS = [
         name: 'Kevin Saunderson',
         spotlight: false,
         image: require('../assets/images/artists/KevinSaunderson_360x360.jpg'),
-        genres: ['dance','house','techno'],
+        genres: ['house','techno'],
         home: 'Michigan',
         description: 'Kevin Maurice Saunderson is an American electronic music producer. At the age of nine he moved to Belleville, Michigan, a suburb of Detroit where he attended Belleville High School and befriended two students, Derrick May and Juan Atkins. '
     },
@@ -193,7 +193,7 @@ export const ARTISTS = [
         name: 'Claptone',
         spotlight: false,
         image: require('../assets/images/artists/Claptone_360x360.jpg'),
-        genres: ['deep house', 'house'],
+        genres: ['house'],
         home: 'Germany',
         description: 'In a now long forgotten world, many generations ago, a bird like shape emerged from wooded darkness, floating and fluttering, drifting and dreaming. Backlit by a bright glow of iridescent light, the undecipherable form wore a dazzling golden mask. Its long beak swooped down like an inverted horn and since then, people have referred to the mythical being simply as Claptone...'
     },
@@ -220,7 +220,7 @@ export const ARTISTS = [
         name: 'Will Clarke',
         spotlight: false,
         image: require('../assets/images/artists/WillClarke_360x360.jpg'),
-        genres: ['dance', 'techno', 'house'],
+        genres: ['techno', 'house'],
         home: 'England',
         description: 'An instantly recognizable DJ with his unique style and a one-of-a-kind beard, Will Clarke has solidified his place in dance music with recent hits “Hallelujah”, “U Take Me Higher”, and his collaboration with MK, “My Church” all released on his new label All We Have Is Now. In addition to his work on his own label, Will Clarke has recently put out records on highly esteemed labels Kneaded Pains, We Are The Brave, TrueSoul, and Relief as well as a string of remixes including Duke Dumont’s “Love Song” and a remix of Adam Beyer’s “Your Mind” on Drumcode.'
     },
@@ -229,7 +229,7 @@ export const ARTISTS = [
         name: 'ARTBAT',
         spotlight: false,
         image: require('../assets/images/artists/ARTBAT.jpg'),
-        genres: ['melodic house', 'house', 'techno', 'melodic techno', 'deep house'],
+        genres: ['house', 'techno'],
         home: 'Ukraine',
         description: 'Artbat, the Ukranian duo of Artur & Batish, are currently among the most successful Ukrainian electronic acts and enjoy global recognition. Over the last couple of years the two experienced deejays and producers from Kiev have completed a rewarding transition from the debut release, to this summer performing at the Destino and Pacha, Ibiza. The key to Artbat’s success lies within their powerful and inventive sound of the highest quality. Their tracks have an impressive capacity to fuel both intimate dance floors and huge arenas with energy and drive. It’s for these very reasons why many renowned artists are attracted by Artbat’s music. Such dance music authorities like Solomun, Maceo Plex, Richie Hawtin, Dj Hell and many others are now regularly spinning Artbat’s tracks during their sets.'
     },

@@ -1,13 +1,14 @@
 import React, { Component } from 'react';
-import { StyleSheet, Text, View } from 'react-native';
+import { ScrollView, StyleSheet, Text, View } from 'react-native';
 import { Card } from 'react-native-elements';
 
 import { ARTISTS } from '../shared/artists';
+import RenderGenre from './RenderGenre';
 
 function RenderArtist({ artist }) {
     if (artist) {
         return (
-            <View>
+            <ScrollView>
                 <View style={styles.RenderArtistCardArtistNameContainer}>
                     <Text style={styles.RenderArtistCardArtistName}>
                         {artist.name}
@@ -17,11 +18,14 @@ function RenderArtist({ artist }) {
                     image={artist.image}
                     imageStyle={styles.RenderArtistCardImage}
                 >
+                    <View style={styles.RenderArtistGenres}>
+                        {artist.genres.map(genre => <RenderGenre genre={genre} />)}
+                    </View>
                     <Text style={styles.RenderArtistCardArtistDescription}>
                         {artist.description}
                     </Text>
                 </Card>
-            </View>
+            </ScrollView>
         );
     }
     return <View />
@@ -60,10 +64,14 @@ const styles = StyleSheet.create({
         margin: 10,
         fontSize: 16
     },
+    RenderArtistGenres: {
+        flexDirection: 'row',
+        justifyContent: 'center'
+    },
     RenderArtistCardImage: {
         width: 360,
         height: 360
-    }
+    },
 })
 
 export default ArtistInfo;
